@@ -127,3 +127,55 @@ form button {
 form button:hover {
     background-color: #2fb86e;
 }
+
+.items-grid {
+    display: grid;
+    /* útil para deixar itens alinhados em uma linha ou várias linhas*/
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Você coloca FR pra o tanto de itens que quer em uma row */
+    /* geralmente pra espaçamento é utilizado o margin, mas no caso do grid, será o 'gap'*/
+    gap: 16px
+}
+
+.items-grid li {
+    background-color: #f5f5f5;
+    list-style: none;
+
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+
+    height: 180px;
+
+    padding: 32px 24px 16px;
+
+    display: flex;
+    /* para alinhar as imagens dentro da caixa*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* fluxo padrão do flex é da esquerda pra direita, mas foi invertido no flex direction */
+    text-align: center;
+
+    cursor: pointer;
+    /* adiciona o dedinho de selecionar no mouse */
+}
+
+.items-grid li span {
+    margin-top: 12px;
+    flex: 1;
+    /* para ter um tamanho que preenche sozinho*/
+    display: flex;
+    align-items: center;
+
+    color: var(--title-color);
+}
+
+.items-grid li.selected {
+    background: #e1faec;
+    border: 2px solid #34cb79;
+}
+
+.items-grid li img,
+.items-grid li span {
+    pointer-events: none;
+}
