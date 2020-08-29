@@ -61,7 +61,8 @@ server.post('/savepoint', (req, res) => {
 
   function afterInsertData(err) {
     if (err) {
-      return console.log(err);
+      console.log(err);
+      return res.send('Erro no cadastro!');
     }
     console.log('Cadastrado com sucesso!');
     console.log(this); //quando tem .this não é pra usar arrow function
@@ -72,8 +73,18 @@ server.post('/savepoint', (req, res) => {
 });
 
 server.get('/search', (req, res) => {
+  const search = req.query.search;
+
+  if (search == '') {
+    //pesquisa vazia.
+    return res.render('search-results.html', { total: 0 });
+  }
+
   //Pegar os dados do DB
-  db.all(`SELECT * FROM places`, function (err, rows) {
+  db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function (
+    err,
+    rows
+  ) {
     if (err) {
       console.log(err);
       return res.send('Erro no cadastro!');

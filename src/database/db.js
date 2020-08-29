@@ -52,15 +52,15 @@ db.serialize(() => {
   //   }
   //   db.run(query, values, afterInsertData); //Se colocar os parenteses em afterInsertData ela vai ser chamada imediatamente, mas só queremos chamá-la dps
   //   //3. Consultar dados da Tabela
-  //    db.all(`SELECT * FROM places`, function (err, rows) {
-  //     if (err) {
-  //       return console.log(err);
-  //     }
-  //     console.log('Aqui estão seus registros!');
-  //     console.log(rows);
-  //   });
+  //  db.all(`SELECT * FROM places`, function (err, rows) {
+  //   if (err) {
+  //     return console.log(err);
+  //   }
+  //   console.log('Aqui estão seus registros!');
+  //   console.log(rows);
+  // });
   //   //4. Deletar um dado da tabela
-  // db.run(`DELETE FROM places WHERE id = ?`, [3], function (err) {
+  // db.run(`DELETE FROM places WHERE id = ?`, [7], function (err) {
   //   if (err) {
   //     return console.log(err);
   //   }
